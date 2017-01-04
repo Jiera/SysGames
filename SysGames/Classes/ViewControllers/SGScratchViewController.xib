@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SGScratchViewController">
+            <connections>
+                <outlet property="m_coverView" destination="a2l-gd-g3q" id="mxH-jm-Lkb"/>
+                <outlet property="m_ivBackground" destination="dHu-m8-b6o" id="cnZ-ac-3d0"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dHu-m8-b6o">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a2l-gd-g3q">
+                    <rect key="frame" x="392" y="264" width="240" height="240"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="aWj-4N-mCA"/>
+                        <constraint firstAttribute="height" constant="240" id="f7S-gh-Wt6"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="a2l-gd-g3q" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3RT-Xh-Jdu"/>
+                <constraint firstAttribute="trailing" secondItem="dHu-m8-b6o" secondAttribute="trailing" id="9Xv-6L-31Z"/>
+                <constraint firstAttribute="bottom" secondItem="dHu-m8-b6o" secondAttribute="bottom" id="I1v-de-YoO"/>
+                <constraint firstItem="dHu-m8-b6o" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="fKi-nr-x48"/>
+                <constraint firstItem="dHu-m8-b6o" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lAd-GO-qde"/>
+                <constraint firstItem="a2l-gd-g3q" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="tjf-jL-5fC"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>
