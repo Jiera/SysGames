@@ -43,6 +43,9 @@ static const float fSplitLeftWidth = 256.0f;
     self.m_splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModeAllVisible;
     self.m_splitViewController.maximumPrimaryColumnWidth = fSplitLeftWidth;
     self.m_splitViewController.delegate = self;
+    
+    self.m_splitViewController.view.opaque = NO;
+    self.m_splitViewController.view.backgroundColor = [UIColor clearColor];
 }
 
 - (void)initViewControllers

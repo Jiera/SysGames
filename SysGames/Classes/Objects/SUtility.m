@@ -55,6 +55,19 @@
 
 @end
 
+@implementation UIView (Custom)
+
+- (void)addShadowStyle
+{
+    self.layer.masksToBounds = NO;
+    self.layer.shadowOffset = CGSizeMake(1, 1);
+    self.layer.shadowColor = [kCustomColor_Mask CGColor];
+    self.layer.shadowRadius = 1.0f;
+    self.layer.shadowOpacity = 0.80f;
+}
+
+@end
+
 @implementation UIViewController (Custom)
 
 + (id)newBySelfClass

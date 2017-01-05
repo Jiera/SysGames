@@ -9,6 +9,7 @@
 #ifndef SGFileName_h
 #define SGFileName_h
 
+#define kCustomColor_Mask [UIColor colorWithRed:0.823 green:0.824 blue:0.823 alpha:1.00] //d1d2d1
 #define kCustomColor_Green [UIColor colorWithRed:0.494 green:0.827 blue:0.129 alpha:1.00] //7ed321
 
 #define kFile_Null @"(null)"

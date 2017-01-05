@@ -24,6 +24,8 @@
     [self initValue];
     
     self.m_ivBackground.image = [UIImage imageNamed:kFile_ScratchBackground];
+    [self.m_coverView addShadowStyle];
+    self.m_coverView.backgroundColor = kCustomColor_Mask;
     [self.m_btnReplay updateGreenButton:@"再玩一次"];
     [self setScratchView];
 }

@@ -16,6 +16,10 @@
 - (void)setTurnClicked:(BOOL)isClicked;
 @end
 
+@interface UIView (Custom)
+- (void)addShadowStyle;
+@end
+
 @interface UIViewController (Custom)
 + (id)newBySelfClass;
 @end
