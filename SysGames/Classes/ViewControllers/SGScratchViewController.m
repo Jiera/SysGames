@@ -27,7 +27,6 @@
     [self.m_coverView addShadowStyle];
     self.m_coverView.backgroundColor = kCustomColor_Mask;
     [self.m_btnReplay updateGreenButton:@"再玩一次"];
-    [self setScratchView];
 }
 
 - (void)viewDidLoad {
@@ -38,6 +37,12 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self setScratchView];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
