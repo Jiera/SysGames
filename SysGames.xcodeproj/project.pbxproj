@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D5A192F1E1E3B820049F668 /* RotateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5A192E1E1E3B820049F668 /* RotateView.m */; };
 		BA6114C71E1CD1E5005DB29B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6114C61E1CD1E5005DB29B /* main.m */; };
 		BA6114D01E1CD1E5005DB29B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA6114CE1E1CD1E5005DB29B /* Main.storyboard */; };
 		BA6114D21E1CD1E5005DB29B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA6114D11E1CD1E5005DB29B /* Assets.xcassets */; };
@@ -46,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D5A192D1E1E3B820049F668 /* RotateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotateView.h; sourceTree = "<group>"; };
+		3D5A192E1E1E3B820049F668 /* RotateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RotateView.m; sourceTree = "<group>"; };
 		BA6114C21E1CD1E5005DB29B /* SysGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SysGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA6114C61E1CD1E5005DB29B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BA6114CF1E1CD1E5005DB29B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -109,6 +112,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D5A19301E1E3B890049F668 /* RotateView */ = {
+			isa = PBXGroup;
+			children = (
+				3D5A192D1E1E3B820049F668 /* RotateView.h */,
+				3D5A192E1E1E3B820049F668 /* RotateView.m */,
+			);
+			name = RotateView;
+			sourceTree = "<group>";
+		};
 		BA6114B91E1CD1E5005DB29B = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +217,7 @@
 		BA6114FA1E1CD247005DB29B /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				3D5A19301E1E3B890049F668 /* RotateView */,
 				BA6114FB1E1CD262005DB29B /* HYScratchCardView */,
 			);
 			name = Vendors;
@@ -371,6 +384,7 @@
 			files = (
 				BA61151E1E1CEEA7005DB29B /* SGCore.m in Sources */,
 				BA6115111E1CDF9A005DB29B /* SUtility.m in Sources */,
+				3D5A192F1E1E3B820049F668 /* RotateView.m in Sources */,
 				BA6115151E1CE096005DB29B /* SGScratchViewController.m in Sources */,
 				BA6115081E1CDF2F005DB29B /* SGListViewController.m in Sources */,
 				BA6115041E1CD629005DB29B /* AppDelegate.m in Sources */,
