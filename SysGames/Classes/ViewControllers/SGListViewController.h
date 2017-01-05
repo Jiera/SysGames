@@ -10,9 +10,10 @@
 
 @interface SGListViewController : SGBaseViewController
 
-- (IBAction)clickScratch:(UIButton *)sender;
-- (IBAction)clickCard:(UIButton *)sender;
-- (IBAction)clickTurn:(UIButton *)sender;
+@property (nonatomic, strong) IBOutlet UIButton *m_btnTurn;
+@property (nonatomic, strong) IBOutlet UIButton *m_btnScratch;
+@property (nonatomic, strong) IBOutlet UIButton *m_btnCard;
 
+- (IBAction)switchView:(UIButton *)sender;
 
 @end

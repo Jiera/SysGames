@@ -12,5 +12,8 @@
 
 @property (nonatomic, strong) IBOutlet UIImageView *m_ivBackground;
 @property (nonatomic, strong) IBOutlet UIView *m_coverView;
+@property (nonatomic, strong) IBOutlet UIButton *m_btnReplay;
+
+- (IBAction)clickReplay:(UIButton *)sender;
 
 @end

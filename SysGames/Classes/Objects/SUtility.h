@@ -9,6 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@interface UIButton (Custom)
+- (void)updateGreenButton:(NSString *)text;
+- (void)setScratchClicked:(BOOL)isClicked;
+- (void)setCardClicked:(BOOL)isClicked;
+- (void)setTurnClicked:(BOOL)isClicked;
+@end
+
 @interface UIViewController (Custom)
 + (id)newBySelfClass;
 @end

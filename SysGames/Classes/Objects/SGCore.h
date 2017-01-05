@@ -16,9 +16,9 @@
 @interface SGCore : NSObject
 @property (strong, nonatomic) UISplitViewController *m_splitViewController;
 @property (strong, nonatomic) SGListViewController *m_listViewController;
+@property (strong, nonatomic) SGTurnViewController *m_turnViewController;
 @property (strong, nonatomic) SGScratchViewController *m_scratchViewController;
 @property (strong, nonatomic) SGCardViewController *m_cardViewController;
-@property (strong, nonatomic) SGTurnViewController *m_turnViewController;
 
 + (instancetype)sharedInstance;
 - (void)initValue;

@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 typedef enum {
+    SGDetailView_Turn,
     SGDetailView_Scratch,
-    SGDetailView_Card,
-    SGDetailView_Turn
+    SGDetailView_Card
 } SGDetailView;
 
 @interface SGBaseViewController : UIViewController

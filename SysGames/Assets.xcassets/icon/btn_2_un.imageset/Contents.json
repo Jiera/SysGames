@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "idiom" : "ipad",
+      "filename" : "btn_2_un.pdf"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

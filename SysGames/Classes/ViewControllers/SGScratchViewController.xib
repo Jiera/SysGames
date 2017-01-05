@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SGScratchViewController">
             <connections>
+                <outlet property="m_btnReplay" destination="Aj8-Fg-JSi" id="yad-kJ-eku"/>
                 <outlet property="m_coverView" destination="a2l-gd-g3q" id="mxH-jm-Lkb"/>
                 <outlet property="m_ivBackground" destination="dHu-m8-b6o" id="cnZ-ac-3d0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -31,15 +32,31 @@
                         <constraint firstAttribute="height" constant="500" id="tbV-hF-FyW"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aj8-Fg-JSi">
+                    <rect key="frame" x="236" y="678" width="296" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="7kk-pn-49O"/>
+                        <constraint firstAttribute="width" constant="296" id="xUE-YY-SZm"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                    <state key="normal">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="clickReplay:" destination="-1" eventType="touchUpInside" id="jgH-e2-0bD"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Aj8-Fg-JSi" firstAttribute="centerX" secondItem="dHu-m8-b6o" secondAttribute="centerX" id="14d-Yy-g0q"/>
                 <constraint firstAttribute="trailing" secondItem="dHu-m8-b6o" secondAttribute="trailing" id="9Xv-6L-31Z"/>
                 <constraint firstAttribute="bottom" secondItem="dHu-m8-b6o" secondAttribute="bottom" id="I1v-de-YoO"/>
                 <constraint firstItem="a2l-gd-g3q" firstAttribute="centerX" secondItem="dHu-m8-b6o" secondAttribute="centerX" constant="4" id="NZ9-44-oWU"/>
                 <constraint firstItem="dHu-m8-b6o" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="fKi-nr-x48"/>
                 <constraint firstItem="a2l-gd-g3q" firstAttribute="centerY" secondItem="dHu-m8-b6o" secondAttribute="centerY" constant="28" id="h1b-jL-mVB"/>
                 <constraint firstItem="dHu-m8-b6o" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lAd-GO-qde"/>
+                <constraint firstItem="Aj8-Fg-JSi" firstAttribute="top" secondItem="a2l-gd-g3q" secondAttribute="bottom" constant="16" id="ndF-Sz-fWZ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>

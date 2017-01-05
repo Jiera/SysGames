@@ -39,7 +39,7 @@ static const float fSplitLeftWidth = 256.0f;
 - (void)initSplitViewController
 {
     self.m_splitViewController = [[UISplitViewController alloc] init];
-    self.m_splitViewController.viewControllers = @[self.m_listViewController, self.m_scratchViewController];
+    self.m_splitViewController.viewControllers = @[self.m_listViewController, self.m_turnViewController];
     self.m_splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModeAllVisible;
     self.m_splitViewController.maximumPrimaryColumnWidth = fSplitLeftWidth;
     self.m_splitViewController.delegate = self;
@@ -48,9 +48,9 @@ static const float fSplitLeftWidth = 256.0f;
 - (void)initViewControllers
 {
     self.m_listViewController = [SGListViewController newBySelfClass];
+    self.m_turnViewController = [SGTurnViewController newBySelfClass];
     self.m_scratchViewController = [SGScratchViewController newBySelfClass];
     self.m_cardViewController = [SGCardViewController newBySelfClass];
-    self.m_turnViewController = [SGTurnViewController newBySelfClass];
 }
 
 #pragma mark - UISplitViewController Delegate

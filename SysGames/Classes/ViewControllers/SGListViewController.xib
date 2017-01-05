@@ -10,6 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SGListViewController">
             <connections>
+                <outlet property="m_btnCard" destination="WQu-My-No8" id="drV-3Q-gNq"/>
+                <outlet property="m_btnScratch" destination="xci-OY-pI2" id="mpI-Wu-3Pg"/>
+                <outlet property="m_btnTurn" destination="ivc-Hu-ABb" id="gwA-A5-bCL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,46 +21,39 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xci-OY-pI2">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="222.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                    <state key="normal" title="刮刮樂"/>
-                    <connections>
-                        <action selector="clickScratch:" destination="-1" eventType="touchUpInside" id="Nks-QF-ohb"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WQu-My-No8">
-                    <rect key="frame" x="0.0" y="222.5" width="375" height="222"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                    <state key="normal" title="翻翻樂"/>
-                    <connections>
-                        <action selector="clickCard:" destination="-1" eventType="touchUpInside" id="ywt-W7-nsf"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivc-Hu-ABb">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WQu-My-No8">
                     <rect key="frame" x="0.0" y="444.5" width="375" height="222.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                    <state key="normal" title="轉轉樂"/>
                     <connections>
-                        <action selector="clickCard:" destination="-1" eventType="touchUpInside" id="lvv-3w-hek"/>
-                        <action selector="clickTurn:" destination="-1" eventType="touchUpInside" id="JnA-dF-euz"/>
+                        <action selector="switchView:" destination="-1" eventType="touchUpInside" id="Bd7-g9-am5"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivc-Hu-ABb">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="222.5"/>
+                    <connections>
+                        <action selector="switchView:" destination="-1" eventType="touchUpInside" id="POH-jB-vK8"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xci-OY-pI2">
+                    <rect key="frame" x="0.0" y="222.5" width="375" height="222"/>
+                    <connections>
+                        <action selector="switchView:" destination="-1" eventType="touchUpInside" id="lE2-VD-fZI"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="WQu-My-No8" firstAttribute="height" secondItem="xci-OY-pI2" secondAttribute="height" id="0Z0-hm-0he"/>
-                <constraint firstItem="WQu-My-No8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DK0-DF-fvJ"/>
-                <constraint firstAttribute="trailing" secondItem="WQu-My-No8" secondAttribute="trailing" id="Kg7-VL-zUp"/>
-                <constraint firstItem="ivc-Hu-ABb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="QwJ-6o-MdH"/>
-                <constraint firstAttribute="trailing" secondItem="xci-OY-pI2" secondAttribute="trailing" id="SQa-1o-vVD"/>
-                <constraint firstItem="xci-OY-pI2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="SWQ-uV-YHg"/>
-                <constraint firstAttribute="bottom" secondItem="ivc-Hu-ABb" secondAttribute="bottom" id="aKE-86-SWp"/>
-                <constraint firstItem="WQu-My-No8" firstAttribute="top" secondItem="xci-OY-pI2" secondAttribute="bottom" id="fSp-hI-K2t"/>
-                <constraint firstItem="xci-OY-pI2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gwo-vs-jFK"/>
-                <constraint firstItem="ivc-Hu-ABb" firstAttribute="top" secondItem="WQu-My-No8" secondAttribute="bottom" id="mB1-GM-3dz"/>
-                <constraint firstAttribute="trailing" secondItem="ivc-Hu-ABb" secondAttribute="trailing" id="mMC-da-MXa"/>
-                <constraint firstItem="ivc-Hu-ABb" firstAttribute="height" secondItem="xci-OY-pI2" secondAttribute="height" id="tK7-id-tlp"/>
+                <constraint firstItem="xci-OY-pI2" firstAttribute="top" secondItem="ivc-Hu-ABb" secondAttribute="bottom" id="E2W-St-MJQ"/>
+                <constraint firstItem="WQu-My-No8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="MuR-c7-q2p"/>
+                <constraint firstItem="xci-OY-pI2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Rfj-1H-gsf"/>
+                <constraint firstItem="ivc-Hu-ABb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VGt-y2-Jmv"/>
+                <constraint firstItem="WQu-My-No8" firstAttribute="top" secondItem="xci-OY-pI2" secondAttribute="bottom" id="VjP-Du-Thq"/>
+                <constraint firstItem="WQu-My-No8" firstAttribute="height" secondItem="ivc-Hu-ABb" secondAttribute="height" id="ZcJ-RM-Htz"/>
+                <constraint firstItem="ivc-Hu-ABb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ZpE-ed-db5"/>
+                <constraint firstAttribute="trailing" secondItem="ivc-Hu-ABb" secondAttribute="trailing" id="mnk-cf-4ko"/>
+                <constraint firstAttribute="trailing" secondItem="xci-OY-pI2" secondAttribute="trailing" id="uOX-Wd-405"/>
+                <constraint firstAttribute="trailing" secondItem="WQu-My-No8" secondAttribute="trailing" id="vfi-zW-Yv5"/>
+                <constraint firstItem="xci-OY-pI2" firstAttribute="height" secondItem="ivc-Hu-ABb" secondAttribute="height" id="yli-C0-dtZ"/>
+                <constraint firstAttribute="bottom" secondItem="WQu-My-No8" secondAttribute="bottom" id="zeG-mB-mBu"/>
             </constraints>
             <point key="canvasLocation" x="2172.5" y="39.5"/>
         </view>
