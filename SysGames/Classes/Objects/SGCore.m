@@ -8,7 +8,7 @@
 
 #import "SGCore.h"
 
-static const float fSplitLeftWidth = 260.0f;
+static const float fSplitLeftWidth = 256.0f;
 
 @interface SGCore () <UISplitViewControllerDelegate>
 

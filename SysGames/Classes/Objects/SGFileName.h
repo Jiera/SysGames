@@ -11,8 +11,8 @@
 
 #define kFile_Null @"(null)"
 
-#define kFile_ScratchBackground @"(null)"
-#define kFile_ScratchImage @"(null)"
-#define kFile_ScratchMask @"(null)"
+#define kFile_ScratchBackground @"bg-scratch-off"
+#define kFile_ScratchImage @"reward"
+#define kFile_ScratchMask @"cover"
 
 #endif

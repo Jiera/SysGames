@@ -9,7 +9,7 @@
 #import "HYScratchCardView.h"
 
 #define kPenWidth     30.0f
-#define kCornerRadius 35.0f
+#define kCornerRadius 0.0f
 
 @interface HYScratchCardView ()
 @property (nonatomic, strong) UIImageView *surfaceImageView;
