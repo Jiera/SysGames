@@ -24,21 +24,22 @@ typedef enum {
 @interface RotateView()
 
 // Data
-@property (assign, nonatomic) int m_iRotateCount; // 轉圈次數.
-@property (assign, nonatomic) int m_iCurrentRotateCount; // 目前轉圈次數.
-@property (assign, nonatomic) int m_iNextIndex; // 下次轉到的index
-@property (assign, nonatomic) CGFloat m_fRadius; // 半徑
-@property (assign, nonatomic) CGFloat m_fEndAngle; // 畫弧時將上次角度記住.
-@property (assign, nonatomic) CGPoint m_pCenterPoint; // 中心點
-@property (assign, nonatomic) CGFloat m_fRadiansDiff; // nextIndex與currentIndex之弧度差距.
-@property (assign, nonatomic) CGFloat m_fSpinDuration; // 轉圈的時間
-@property (assign, nonatomic) CGFloat m_fSpinRadians; // 轉圈的弧度
-@property (strong, nonatomic) NSMutableArray *m_aryShapeAngle; // angle array.
-@property (strong, nonatomic) NSMutableArray *m_aryShapeLayer; // layer array.
-@property (strong, nonatomic) NSMutableArray *m_aryTimeInterval; // timeInterval array.
+@property (assign, nonatomic) int m_iRotateCount;
+@property (assign, nonatomic) int m_iCurrentRotateCount;
+@property (assign, nonatomic) int m_iNextIndex;
+@property (assign, nonatomic) CGFloat m_fRadius;
+@property (assign, nonatomic) CGFloat m_fEndAngle;
+@property (assign, nonatomic) CGPoint m_pCenterPoint;
+@property (assign, nonatomic) CGFloat m_fRadiansDiff;
+@property (assign, nonatomic) CGFloat m_fSpinDuration;
+@property (assign, nonatomic) CGFloat m_fSpinRadians;
+@property (strong, nonatomic) NSMutableArray *m_aryShapeAngle;
+@property (strong, nonatomic) NSMutableArray *m_aryShapeLayer;
+@property (strong, nonatomic) NSMutableArray *m_aryTimeInterval;
 @property (strong, nonatomic) NSArray *m_aryItems;
 @property (assign, nonatomic) CGPoint m_touchPoint;
 @property (assign, nonatomic) SwipeDirection m_swipeDirection;
+@property (assign, nonatomic) CGFloat m_fromValue;
 
 
 // UI
@@ -70,6 +71,7 @@ typedef enum {
 #pragma mark - Init
 - (void)configureRotateView:(NSArray*)aryItems {
     self.m_aryItems = aryItems;
+    self.m_fromValue = 0.0f;
     self.m_aryShapeAngle = [[NSMutableArray alloc]init];
     self.m_aryShapeLayer = [[NSMutableArray alloc]init];
     self.m_vShape = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
@@ -97,7 +99,6 @@ typedef enum {
 
 #pragma mark - Private Method
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    self.m_btSpin.userInteractionEnabled = NO;
     UITouch *touch= [touches anyObject];
     if ([touch view] == self.m_vCoverView)
     {
@@ -337,11 +338,9 @@ typedef enum {
     [textLayer setForegroundColor:[UIColor whiteColor].CGColor];
     [CATransaction setDisableActions:YES];
     [textLayer setFrame:CGRectMake(0, 0, self.m_fRadius, 20)];
-//    [textLayer setBackgroundColor:[UIColor whiteColor].CGColor];
     textLayer.transform = CATransform3DMakeAffineTransform(CGAffineTransformMakeRotation(fAngle));
     [CATransaction setDisableActions:NO];
     [textLayer setPosition:CGPointMake(self.m_pCenterPoint.x + ((self.m_fRadius * cos(fAngle))/1.6), self.m_pCenterPoint.y + (self.m_fRadius * sin(fAngle))/1.6)];
-//    [textLayer setPosition:CGPointMake(self.m_pCenterPoint.x, self.m_pCenterPoint.y)];
 
     
     [shapeLayer addSublayer:textLayer];
@@ -359,111 +358,37 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
 }
 
 #pragma mark - Spin Configure
-- (void)getDurationFromRotateCount {
-    
-    if (self.m_iCurrentRotateCount%4 == 0 ||
-        self.m_iRotateCount == self.m_iCurrentRotateCount) {
-
-        self.m_fSpinDuration += 0.01f;
-    }
-    
-//    if (self.m_iCurrentRotateCount%4 == 0 ||
-//        self.m_iRotateCount == self.m_iCurrentRotateCount) {
-//        double x = (double)self.m_iCurrentRotateCount/2;
-//        CGFloat fDuration = (0.35 * pow(x,2) - 12*x +120)/1000;
-//        self.m_fSpinDuration = fDuration;
-//        
-//        if (self.m_iCurrentRotateCount == self.m_iRotateCount) {
-//            self.m_fSpinDuration = fabs(self.m_fRadiansDiff) * self.m_fSpinDuration / (M_PI/2);
-//        }
-//    }
-}
-
 - (void)configurateFinalRotateWithDirection:(RotateDirection)direction {
-    NSLog(@"NextIndex:%d ",self.m_iNextIndex);
-    
-//    int randomNumber = (arc4random()%(2))+8;
     CGFloat random = (arc4random()%60 +10) * 0.1 + (arc4random()%(2))+8;
-    
     
     if (direction == RotateDirectionClockwise) {
         [self runSpinAnimationOnView:self.m_vShape duration:2.0 rotations:random repeat:0];
     } else {
         [self runSpinAnimationOnView:self.m_vShape duration:2.0 rotations:0-random repeat:0];
     }
-//        self.m_fRadiansDiff = ((M_PI*3)/2) - [self.m_aryShapeAngle[self.m_iNextIndex]floatValue];
-//        
-//        if (self.m_fRadiansDiff > (M_PI-0.001f)) {
-//            self.m_iRotateCount += 2;
-//            self.m_fRadiansDiff -= M_PI;
-//        }
-//        else if (self.m_fRadiansDiff < 0) {
-//            self.m_iRotateCount += 2;
-//            self.m_fRadiansDiff = M_PI - fabs(self.m_fRadiansDiff);
-//        }
-//    }
-//    // 逆時針
-//    if (direction == RotateDirectionCunterClockwise) {
-//        self.m_fRadiansDiff =  ((M_PI*3)/2) - [self.m_aryShapeAngle[self.m_iNextIndex]floatValue];
-//        
-//        if (self.m_fRadiansDiff > 0) {
-//            self.m_fRadiansDiff = self.m_fRadiansDiff - M_PI*2;
-//            
-//            if (self.m_fRadiansDiff <  0 - (M_PI-0.01f)) {
-//                self.m_iRotateCount += 2;
-//                self.m_fRadiansDiff += M_PI;
-//            }
-//        }
-//    }
-//    
-//    NSString *strLog = direction == RotateDirectionClockwise?@"Clockwise":@"CunterClockwise";
-//    NSLog(@"[%@] FinalSpin:%f",strLog,self.m_fRadiansDiff);
 }
 
 - (void) runSpinAnimationOnView:(UIView*)view duration:(CGFloat)duration rotations:(CGFloat)rotations repeat:(float)repeat;
 {
+    
     CABasicAnimation* rotationAnimation;
+    
     rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-    rotationAnimation.toValue = [NSNumber numberWithFloat: rotations];
+    rotationAnimation.fromValue = [NSNumber numberWithFloat:self.m_fromValue];
+    rotationAnimation.toValue = [NSNumber numberWithFloat: rotations + self.m_fromValue];
     rotationAnimation.duration = duration;
     rotationAnimation.delegate = self;
     rotationAnimation.cumulative = YES;
+    rotationAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     rotationAnimation.repeatCount = repeat;
     rotationAnimation.fillMode = kCAFillModeForwards;
     rotationAnimation.removedOnCompletion = NO;
 
     [view.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
+    
+    self.m_fromValue = rotations + self.m_fromValue;
 }
 
-
-- (void)spinSelf {
-    [UIView animateWithDuration:self.m_fSpinDuration delay:0.0f options:UIViewAnimationOptionCurveLinear animations:^{
-        self.m_vShape.transform = CGAffineTransformRotate(self.m_vShape.transform,self.m_fSpinRadians);
-        self.m_iCurrentRotateCount += 1;
-    }completion:^(BOOL finished) {
-        [self getDurationFromRotateCount];
-        if (self.m_iRotateCount == self.m_iCurrentRotateCount) {
-            [self spinFinal];
-        }
-        else {
-            [self spinSelf];
-        }
-    }];
-}
-
-- (void)spinFinal {
-    [UIView animateWithDuration:self.m_fSpinDuration delay:0.0f options:UIViewAnimationOptionCurveLinear animations:^{
-        self.m_vShape.transform = CGAffineTransformRotate(self.m_vShape.transform,self.m_fRadiansDiff);
-    } completion:^(BOOL finished) {
-        // do something.
-        if (self.handleSpinCompletion) {
-            self.handleSpinCompletion();
-        }
-        self.m_iNextIndex = arc4random()%self.m_aryItems.count;
-        self.m_iNextIndex = 0;
-        self.userInteractionEnabled = YES;
-    }];
-}
 
 -(void)handleSpinClockwise {
     [self spinDirection:RotateDirectionClockwise];
@@ -474,6 +399,11 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
 }
 
 #pragma mark - Public Method
+- (void)enableView {
+    self.userInteractionEnabled = YES;
+    self.m_btSpin.userInteractionEnabled = YES;
+}
+
 -(void)spinDirection:(RotateDirection)direction {
     
     if(self.m_iNextIndex < 0 || self.m_iNextIndex > self.m_aryItems.count-1 ) {
@@ -489,22 +419,27 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
     self.m_fSpinRadians = direction == RotateDirectionClockwise?M_PI/2:-(M_PI/2);
     self.m_iCurrentRotateCount = 0;
     self.m_iRotateCount = 10*4; // 必須為4的倍數
-    [self configurateFinalRotateWithDirection:direction];
     
-//    [self spinSelf];
+    [self spin:direction];
 }
 
-- (void)setNextIndex:(int)index {
-    self.m_iNextIndex = index;
+- (void)spin:(RotateDirection)direction {
+    self.m_btSpin.userInteractionEnabled = NO;
+    self.userInteractionEnabled = NO;
+    
+    CGFloat random = (arc4random()%60 +16) * 0.1 + (arc4random()%(2))+8;
+    
+    if (direction == RotateDirectionClockwise) {
+        [self runSpinAnimationOnView:self.m_vShape duration:3.5 rotations:random * 8 repeat:0];
+    } else {
+        [self runSpinAnimationOnView:self.m_vShape duration:3.5 rotations:0 - (random * 8) repeat:0];
+    }
 }
-
 
 #pragma mark - CAAnimationDelegate
 -(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
     if (flag == YES) {
-        NSLog(@"Enddddd");
-//        [self spinFinal];
-        self.userInteractionEnabled = YES;
+        [self enableView];
     }
 }
 @end

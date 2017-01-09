@@ -23,6 +23,7 @@
 @interface SGTurnViewController ()
 @property (strong, nonatomic) IBOutlet RotateView *m_rotateView;
 @property (strong, nonatomic) IBOutlet UIButton *m_btnGo;
+@property (assign, nonatomic) BOOL m_bIsInit;
 - (IBAction)handleSpin:(id)sender;
 
 @end
@@ -42,11 +43,22 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if (self.m_bIsInit == YES) {
+        [self.m_rotateView enableView];
+        return;
+    }
+    
     [self.view layoutIfNeeded];
     [self.m_rotateView layoutIfNeeded];
     
     NSArray *aryDataList = [self getArrayOfRouletteItems];
+    
+    self.m_rotateView.m_btSpin = self.m_btnGo;
     [self.m_rotateView configureRotateView:aryDataList];
+    
+    self.m_bIsInit = YES;
 }
 
 #pragma mark - Private Methods
@@ -61,10 +73,10 @@
     
     for(int i =0 ; i < aryPrizeNames.count; i ++) {
         color = aryColorList[i];
-        fDegree = 12.5 *3.6f; // WebService給的是百分比,所以*3.6. ex.10 = 36度
+        fDegree = 12.5 *3.6f; 
         ArcItems *item = [[ArcItems alloc]init];
-        [item itemSetupWithDegees:fDegree color:color text:aryPrizeNames[i] index:i];
         
+        [item itemSetupWithDegees:fDegree color:color text:aryPrizeNames[i] index:i];
         [aryDataList addObject:item];
     }
     
@@ -72,5 +84,6 @@
 }
 
 - (IBAction)handleSpin:(id)sender {
+    [self.m_rotateView spin:RotateDirectionClockwise];
 }
 @end

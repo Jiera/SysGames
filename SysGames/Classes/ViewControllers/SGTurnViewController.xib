@@ -31,7 +31,7 @@
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1H8-DC-eEu" customClass="RotateView">
-                    <rect key="frame" x="148" y="155" width="471" height="470"/>
+                    <rect key="frame" x="133" y="140" width="501" height="500"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="1H8-DC-eEu" secondAttribute="height" multiplier="522:522" constant="1" id="U0s-P3-cu6"/>
@@ -51,7 +51,7 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="1H8-DC-eEu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="155" id="9aN-3H-xbS"/>
+                <constraint firstItem="1H8-DC-eEu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="140" id="9aN-3H-xbS"/>
                 <constraint firstItem="czN-1T-Mp5" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Cmi-IU-Sk7"/>
                 <constraint firstItem="BcQ-xe-G2m" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="EIQ-vz-pOH"/>
                 <constraint firstItem="BcQ-xe-G2m" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="G9n-q2-13l"/>

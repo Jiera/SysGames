@@ -31,6 +31,6 @@ typedef enum {
 @property (copy, nonatomic) HandleStartSpin handleStartSpin;
 @property (strong, nonatomic) UIButton *m_btSpin;
 - (void)configureRotateView:(NSArray*)aryItems;
-- (void)spinDirection:(RotateDirection)direction;
-- (void)setNextIndex:(int)index;
+- (void)spin:(RotateDirection)direction;
+- (void)enableView;
 @end
