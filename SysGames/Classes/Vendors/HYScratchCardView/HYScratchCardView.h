@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#define kScratchOffRate 0.8
+#define kScratchOffRate 0.45
 
 typedef void(^scratchCompletion)(NSString *scratchId);
 

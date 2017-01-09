@@ -24,8 +24,8 @@
     [self initValue];
     
     self.m_ivBackground.image = [UIImage imageNamed:kFile_ScratchBackground];
-    [self.m_coverView addShadowStyle];
-    self.m_coverView.backgroundColor = kCustomColor_Mask;
+    self.m_coverView.layer.cornerRadius = 220.0f;
+    self.m_coverView.layer.masksToBounds = YES;
     [self.m_btnReplay updateGreenButton:@"再玩一次"];
 }
 
