@@ -328,7 +328,7 @@ typedef enum {
     CATextLayer *textLayer = [CATextLayer layer];
     textLayer.contentsScale = [[UIScreen mainScreen]scale];
     [textLayer setString:strText];
-    [textLayer setFontSize:15.0f];
+    [textLayer setFontSize:26.0f];
     [textLayer setBackgroundColor:[UIColor clearColor].CGColor];
     [textLayer setAlignmentMode:@"center"];
     [textLayer setShadowColor:[UIColor blackColor].CGColor];
@@ -337,10 +337,10 @@ typedef enum {
     [textLayer setShadowRadius:0.9f];
     [textLayer setForegroundColor:[UIColor whiteColor].CGColor];
     [CATransaction setDisableActions:YES];
-    [textLayer setFrame:CGRectMake(0, 0, self.m_fRadius, 20)];
+    [textLayer setFrame:CGRectMake(0, 0, self.m_fRadius, 33)];
     textLayer.transform = CATransform3DMakeAffineTransform(CGAffineTransformMakeRotation(fAngle));
     [CATransaction setDisableActions:NO];
-    [textLayer setPosition:CGPointMake(self.m_pCenterPoint.x + ((self.m_fRadius * cos(fAngle))/1.6), self.m_pCenterPoint.y + (self.m_fRadius * sin(fAngle))/1.6)];
+    [textLayer setPosition:CGPointMake(self.m_pCenterPoint.x + ((self.m_fRadius * cos(fAngle))/1.45), self.m_pCenterPoint.y + (self.m_fRadius * sin(fAngle))/1.45)];
 
     
     [shapeLayer addSublayer:textLayer];

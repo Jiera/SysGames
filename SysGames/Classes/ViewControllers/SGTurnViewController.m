@@ -66,7 +66,7 @@
 -(NSArray *)getArrayOfRouletteItems
 {
     NSMutableArray *aryDataList = [[NSMutableArray alloc]init];
-    NSArray *aryPrizeNames  = @[@"精誠集團",@"智慧金融",@"未來零售",@"新媒體",@"數據加值",@"趨勢接軌",@"Fintech服務",@"精誠隨想"];
+    NSArray *aryPrizeNames  = @[@"精誠集團",@"智慧金融",@"未來零售",@"新媒體",@"數據加值",@"趨勢接軌",@"Fintech",@"精誠隨想"];
     NSArray *aryColorList = @[kColor_Orange,kColor_Red,kColor_Pink,kColor_Purple,kColor_Lightblue,kColor_Darkblue,kColor_Green,kColor_Yellow];
     UIColor *color;
     CGFloat fDegree;
